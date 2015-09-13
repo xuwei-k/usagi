@@ -8,7 +8,7 @@ object build extends Build {
   lazy val usagi = Project(
     usagiName, file(".")
   ).settings(
-    Common.commonSettings
+    Common.commonSettings ++ xerial.sbt.Sonatype.sonatypeRootSettings
   ).settings(
     name := usagiName,
     fork in run := true,
