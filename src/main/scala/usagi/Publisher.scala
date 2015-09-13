@@ -34,7 +34,6 @@ object Publisher {
     new Forall[Publisher] {
       def apply[A] = {
 
-        println("start queueDeclare")
         channel.queueDeclare(routingKey, true, false, false, null)
         channel.confirmSelect()
 
@@ -44,12 +43,8 @@ object Publisher {
 
         val closeProcess = Process.eval_{
           Task[Unit] {
-            println("channel close start")
             if (channel.isOpen) {
               channel.close()
-              println("close finish")
-            } else {
-              println("already closed")
             }
           }
         }
@@ -60,7 +55,6 @@ object Publisher {
           @volatile private[this] var lastTag = firstTagNumber
 
           private[this] def handle(tag: Long, multiple: Boolean, isAck: Boolean) = try {
-            println(s"handle tag=$tag, multiple=$multiple, isAck=$isAck")
             val range = synchronized {
               val r = if (multiple) {
                 (lastTag + 1) to tag
@@ -96,7 +90,6 @@ object Publisher {
                 }
             }
             queue.enqueueOne(result).run
-            println("finish enqueue")
           } catch {
             case NonFatal(e) =>
               e.printStackTrace()
@@ -111,11 +104,9 @@ object Publisher {
 
         val publisher: Sink[Task, Publish[A]] = stream.sink.lift((publish: Publish[A]) =>
           Task.now[Unit] {
-            println(s"start publish ${publish.id}")
             val tag = channel.synchronized {
               val t = channel.getNextPublishSeqNo
               channel.basicPublish(exchange, routingKey, mandatory, immediate, props, publish.bytes.toArray)
-              println(s"published ${publish.id}")
               t
             }
             messages.put(tag, publish.id)
