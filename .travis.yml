@@ -1,0 +1,13 @@
+language: scala
+
+sudo: false
+
+services:
+  - rabbitmq
+
+scala:
+  - 2.11.7
+  - 2.10.5
+
+script:
+  - sbt ++$TRAVIS_SCALA_VERSION test:run
