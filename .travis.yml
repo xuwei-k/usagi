@@ -7,7 +7,7 @@ services:
 
 scala:
   - 2.11.7
-  - 2.10.5
+  - 2.10.6
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION test:run
