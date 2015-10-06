@@ -6,5 +6,5 @@
 
 
 ```scala
-libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.1.0"
+libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.1.1"
 ```
