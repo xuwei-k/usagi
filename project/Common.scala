@@ -21,7 +21,7 @@ object Common {
 
   val commonSettings = Seq(
     scalaVersion := Scala211,
-    crossScalaVersions := Scala211 :: "2.10.6" :: Nil,
+    crossScalaVersions := Scala211 :: "2.10.6" :: "2.12.0-M3" :: Nil,
     organization := "com.github.xuwei-k",
     description := "RabbitMQ client with scalaz-stream",
     fullResolvers ~= {_.filterNot(_.name == "jcenter")},
