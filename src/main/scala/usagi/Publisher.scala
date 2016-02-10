@@ -89,7 +89,7 @@ object Publisher {
                   Nack(ids)
                 }
             }
-            queue.enqueueOne(result).run
+            queue.enqueueOne(result).unsafePerformSync
           } catch {
             case NonFatal(e) =>
               e.printStackTrace()

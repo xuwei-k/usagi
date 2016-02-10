@@ -24,7 +24,7 @@ object Consumer {
       setting.exclusive,
       setting.arguments.asJava,
       new AMQPConsumerImpl( message =>
-        queue.enqueueOne(message).run
+        queue.enqueueOne(message).unsafePerformSync
       )
     )
 

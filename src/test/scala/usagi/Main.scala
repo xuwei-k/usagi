@@ -52,7 +52,7 @@ object Main {
           println("close connection")
           connection.close()
         }
-      }.runFor(10.second)
+      }.unsafePerformSyncFor(10.second)
 
       println("result = " + result)
     } catch {
