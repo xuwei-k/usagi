@@ -13,7 +13,7 @@ object build extends Build {
     name := usagiName,
     fork in run := true,
     libraryDependencies += "org.scalaz.stream" %% "scalaz-stream" % "0.8a",
-    libraryDependencies += "com.rabbitmq" % "amqp-client" % "3.6.0"
+    libraryDependencies += "com.rabbitmq" % "amqp-client" % "3.6.1"
   )
 
 }
