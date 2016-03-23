@@ -17,7 +17,7 @@ object Common {
     Nil
   )
 
-  private[this] val Scala211 = "2.11.7"
+  private[this] val Scala211 = "2.11.8"
 
   val commonSettings = Seq(
     scalaVersion := Scala211,
