@@ -12,7 +12,7 @@ object build extends Build {
   ).settings(
     name := usagiName,
     fork in run := true,
-    libraryDependencies += "org.scalaz.stream" %% "scalaz-stream" % "0.8a",
+    libraryDependencies += "org.scalaz.stream" %% "scalaz-stream" % "0.8.1a",
     libraryDependencies += "com.rabbitmq" % "amqp-client" % "3.6.1"
   )
 
