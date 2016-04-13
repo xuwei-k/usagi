@@ -15,4 +15,11 @@ matrix:
     jdk: oraclejdk8
 
 script:
-  - sbt ++$TRAVIS_SCALA_VERSION test:run
+  - git config core.whitespace tab-in-indent,trailing-space,space-before-tab,cr-at-eol
+  - git show --oneline --check
+  - sbt ++${TRAVIS_SCALA_VERSION} compile test:compile test:run $(if [[ "${TRAVIS_PULL_REQUEST}" == "false" && "${TRAVIS_BRANCH}" == "master" ]]; then echo "publish"; fi)
+
+env:
+  global:
+  - secure: IFF6Y+UASZZYJ8DhOFhJcbWljpCh+VMjGDB87mOjfGQ0vrcj2UXQ8P93vK32fDxdF9BTIJ3dhcKlz6mj/KpWto6JpWr1ixh2JomomBRhh1dVMDiKcpwvaNDhNhAd61TJeYRiA4uF1gW8sReZiioXHyKWxXLI5DZhIY+mCnkYiby3j8lssPYNmX9ae+vmsRr26iwlAiLUw7ViSP6kR5ZVLkJgwOck0J2h7hrtc7cIGpMQi6r4BT8rOvu1Ocok3KOYbvZcXIavaI1uHEhex6RfkZjVvrz6LbllJSOIhK709OkdtohlYeURuiZljzBwBSzHU7Rpiv3kIMhby4RTrwO2uaBjRF9mIbAqIqApeK6/koXOvFL8V5Y1RXrzu8i7UMzdPiGXURT+Mc9ZMY5jy0EqE6FXxATFstCFWeI0hsEWlSx5uEE5A61agyIrasT1xaZ6HyjaL2C/s5WacLZ50X3Ice3tODKAq5EQv3GJuBX+EJH19Kf8v6u+IDjvbGilexbBNYj+VtgYGenlZ/fNUTn1yUawtT8YWjLOosZUVlvJAVoUFuuTtdo6uZRm/JoKHGYsPdT2YPQpfs/StNHgse4ULima8bMnRzIWIoP2vtzMk1DJCOGkBU0kpt35lgS5q3kLCp09hO1YoIzUEDfmY6c8WVjkuobUxxtIM8inUgqXT08=
+  - secure: Or2RVdWGvdb83xH5xyigQL73biuEy2hWz3hSzjOrMVGIjUm/mHNKVld0nEW75ipLMY869RisUnQQYvfQaNGek+7JzrWZtE2AlLunpAXCPajHfyGM8yMyE+0izBQKmvzfYACv0HFSDTypX27JdkCrfMHmXoNjBwRU/fdKjGxWj7l1oBbNKQebysihvodHgYNnDE6FP6zFsWUbaTC6ImWcrhkvYiSTe4HQkOUbGBnYxSnPBGca4IhA06FoUg2WqdBaDrr955udnjfYcHdYf+95/0cm7UwV2MSJ6ZbNQ3pmz3ey7N3KNxSd5LSe6kGOi0su7GVd0C6wQVVPmyeULNcRi5jFO5hWkhXxf+aEDCWyWxEjMmkCdak4qEuRcTnbqqss45BzPhHFB/Ox7hmeBCeEDMATvcUgIBMDCKttOHf0/qGWugXXgDXna3UL7l4QCzRwOSiRJWT7AGft8O+U4JxXdtV+KCaN4cYGcZmnf8MvmfvU/RDGnV6wbqNDsUBCJhPvUJ22xPEyAAraE8BR6P6yd3feifuJmYNOMbi3oHNYj58vZIhzIHGhmjZYbKKNtrrPcv+gDmMmVfFuM51alvfWWoqfqtGdjoPUOPsom6i3SEXfRDqPvR5C/Xe8U4KrSuLpdGyOVmIOMnRjm+xWnUttx63SZ4PGQ6u+Ch7utqF3IGg=
