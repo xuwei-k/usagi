@@ -3,8 +3,7 @@ package usagi
 import com.rabbitmq.client.{Channel => AMQPChannel}
 import scala.collection.JavaConverters._
 import scalaz._
-import scalaz.concurrent.Task
-import scalaz.stream._
+import fs2._
 
 final case class Consumer(
   consume: Process[Task, ConsumeMessage],

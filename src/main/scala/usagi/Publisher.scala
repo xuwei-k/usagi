@@ -2,11 +2,10 @@ package usagi
 
 import com.rabbitmq.client.AMQP.BasicProperties
 import com.rabbitmq.client.{ConfirmListener, Channel => AMQPChannel}
+import fs2._
 import scodec.bits.ByteVector
 import scala.util.control.NonFatal
 import scalaz._
-import scalaz.concurrent.Task
-import scalaz.stream._
 
 final case class Publisher[A](
   publishSink: Sink[Task, Publisher.Publish[A]],
