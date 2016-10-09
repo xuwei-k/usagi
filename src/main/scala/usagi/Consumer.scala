@@ -1,7 +1,7 @@
 package usagi
 
 import com.rabbitmq.client.{Channel => AMQPChannel}
-import scala.collection.convert.decorateAsJava._
+import scala.collection.JavaConverters._
 import scalaz._
 import scalaz.concurrent.Task
 import scalaz.stream._
