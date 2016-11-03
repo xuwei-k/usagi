@@ -16,7 +16,7 @@ libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.2.1"
 ```scala
 resolvers += Opts.resolver.sonatypeSnapshots
 
-libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.2.1-SNAPSHOT"
+libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.2.2-SNAPSHOT"
 ```
 
-- [API Documentation](https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/usagi_2.11/0.2.1-SNAPSHOT/usagi_2.11-0.2.1-SNAPSHOT-javadoc.jar/!/index.html)
+- [API Documentation](https://oss.sonatype.org/service/local/repositories/snapshots/archive/com/github/xuwei-k/usagi_2.11/0.2.2-SNAPSHOT/usagi_2.11-0.2.2-SNAPSHOT-javadoc.jar/!/index.html)
