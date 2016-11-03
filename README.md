@@ -8,7 +8,7 @@
 ### latest stable version
 
 ```scala
-libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.2.0"
+libraryDependencies += "com.github.xuwei-k" %% "usagi" % "0.2.1"
 ```
 
 ### snapshot version
