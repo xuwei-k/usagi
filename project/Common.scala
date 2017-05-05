@@ -17,11 +17,11 @@ object Common {
     Nil
   )
 
-  private[this] val Scala211 = "2.11.8"
+  private[this] val Scala211 = "2.11.11"
 
   val commonSettings = Seq(
     scalaVersion := Scala211,
-    crossScalaVersions := Scala211 :: "2.10.6" :: "2.12.0" :: Nil,
+    crossScalaVersions := Scala211 :: "2.10.6" :: "2.12.2" :: Nil,
     organization := "com.github.xuwei-k",
     description := "RabbitMQ client with scalaz-stream",
     fullResolvers ~= {_.filterNot(_.name == "jcenter")},
